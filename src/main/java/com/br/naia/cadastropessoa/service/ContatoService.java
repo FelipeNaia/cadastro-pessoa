@@ -16,7 +16,7 @@ public class ContatoService {
         contatoEntities.forEach(contatoEntity -> {
             Assert.hasLength(contatoEntity.getNome(), "Nome do contato deve estar preenchido");
             Assert.notNull(contatoEntity.getEmail(), "E-mail do contato deve estar preenchido");
-            Assert.notNull(contatoEntity.getTelefone(), "Telefone do contato deve estar preenchido");
+            Assert.hasLength(contatoEntity.getTelefone(), "Telefone do contato deve estar preenchido");
             validarEmail(contatoEntity.getEmail());
         });
     }
