@@ -45,9 +45,14 @@ public class PessoaService {
 
     private void validarPessoa(PessoaEntity pessoaEntity) {
         Assert.notNull(pessoaEntity, "É necessário preencher as informações da pessoa");
+        validarNome(pessoaEntity);
         validarCPF(pessoaEntity.getCpf());
         validarDataNascimento(pessoaEntity.getNascimento());
         validarContatos(pessoaEntity.getContatos());
+    }
+
+    private void validarNome(PessoaEntity pessoaEntity) {
+        Assert.hasLength(pessoaEntity.getNome(), "É necessário informar o nome da pessoa");
     }
 
     private void validarCPF(String cpf) {

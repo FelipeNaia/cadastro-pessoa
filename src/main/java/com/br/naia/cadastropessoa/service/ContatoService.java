@@ -14,7 +14,7 @@ public class ContatoService {
     public void validarContatos(List<ContatoEntity> contatoEntities) {
         Assert.notEmpty(contatoEntities, "É obrigatorio pelo menos um contato");
         contatoEntities.forEach(contatoEntity -> {
-            Assert.notNull(contatoEntity.getNome(), "Nome do contato deve estar preenchido");
+            Assert.hasLength(contatoEntity.getNome(), "Nome do contato deve estar preenchido");
             Assert.notNull(contatoEntity.getEmail(), "E-mail do contato deve estar preenchido");
             Assert.notNull(contatoEntity.getTelefone(), "Telefone do contato deve estar preenchido");
             validarEmail(contatoEntity.getEmail());
